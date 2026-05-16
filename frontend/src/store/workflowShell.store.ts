@@ -1,0 +1,30 @@
+import { create } from 'zustand';
+
+type TWorkflowShellState = {
+	sidebarCollapsed: boolean;
+	mobileSidebarOpen: boolean;
+	activeWorkspaceView:
+		| 'dashboard'
+		| 'agents'
+		| 'workflows'
+		| 'automations'
+		| 'integrations'
+		| 'analytics'
+		| 'team'
+		| 'settings'
+		| 'editor';
+	setActiveWorkspaceView: (view: TWorkflowShellState['activeWorkspaceView']) => void;
+	closeMobileSidebar: () => void;
+	toggleMobileSidebar: () => void;
+	toggleSidebar: () => void;
+};
+
+export const useWorkflowShellStore = create<TWorkflowShellState>((set) => ({
+	sidebarCollapsed: false,
+	mobileSidebarOpen: false,
+	activeWorkspaceView: 'dashboard',
+	setActiveWorkspaceView: (view) => set({ activeWorkspaceView: view }),
+	closeMobileSidebar: () => set({ mobileSidebarOpen: false }),
+	toggleMobileSidebar: () => set((state) => ({ mobileSidebarOpen: !state.mobileSidebarOpen })),
+	toggleSidebar: () => set((state) => ({ sidebarCollapsed: !state.sidebarCollapsed })),
+}));
