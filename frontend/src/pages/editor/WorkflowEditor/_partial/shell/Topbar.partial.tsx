@@ -1,8 +1,8 @@
 import {
+	ArrowLeft,
 	Bot,
 	CheckCircle2,
 	Cloud,
-	PanelLeft,
 	Play,
 	Rocket,
 	RotateCcw,
@@ -15,9 +15,11 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
+import { useNavigate } from 'react-router';
 import DARK_MODE from '@/constants/darkMode.constant';
 import useDarkMode from '@/hooks/useDarkMode';
 import { useCreateWorkflowVersion, usePublishWorkflowVersion } from '@/api/modules/workflows';
+import { useWorkflowShellStore } from '@/store/workflowShell.store';
 import { useWorkflowEditor } from '../../_context/WorkflowEditorProvider.context';
 import { buildVersionPayload } from '../../_helper/workflowApiTransform.helper';
 import { useRunWorkflow } from '../../_hooks/useRunWorkflow.hook';
@@ -88,6 +90,8 @@ const savingCopy = {
 
 const Topbar = () => {
 	const { state, dispatch } = useWorkflowEditor();
+	const navigate = useNavigate();
+	const setActiveWorkspaceView = useWorkflowShellStore((store) => store.setActiveWorkspaceView);
 	const { isDarkTheme, setDarkModeStatus } = useDarkMode();
 	const { runWorkflow, stopRun } = useRunWorkflow();
 	const saveVersion = useCreateWorkflowVersion(state.workflow.workspaceId ?? '');
@@ -132,13 +136,15 @@ const Topbar = () => {
 		});
 	};
 
+	const handleBack = () => {
+		setActiveWorkspaceView('workflows');
+		navigate('/app/workflows');
+	};
+
 	return (
 		<header className='flex h-16 shrink-0 items-center gap-3 border-b border-zinc-200 bg-white/95 px-4 backdrop-blur-xl dark:border-white/10 dark:bg-zinc-950/92'>
-			<IconButton
-				title='Toggle node library'
-				active={state.ui.leftPanelOpen}
-				onClick={() => dispatch({ type: 'TOGGLE_LEFT_PANEL' })}>
-				<PanelLeft size={16} />
+			<IconButton title='Back to workflows' onClick={handleBack}>
+				<ArrowLeft size={16} />
 			</IconButton>
 
 			<div className='min-w-0 flex-1'>

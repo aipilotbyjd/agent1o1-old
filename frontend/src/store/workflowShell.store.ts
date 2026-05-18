@@ -22,7 +22,7 @@ type TWorkflowShellState = {
 export const useWorkflowShellStore = create<TWorkflowShellState>((set) => ({
 	sidebarCollapsed: false,
 	mobileSidebarOpen: false,
-	activeWorkspaceView: 'dashboard',
+	activeWorkspaceView: 'workflows',
 	setActiveWorkspaceView: (view) => set({ activeWorkspaceView: view }),
 	closeMobileSidebar: () => set({ mobileSidebarOpen: false }),
 	toggleMobileSidebar: () => set((state) => ({ mobileSidebarOpen: !state.mobileSidebarOpen })),

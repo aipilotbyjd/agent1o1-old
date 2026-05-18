@@ -1,15 +1,19 @@
 import pages from '@/Routes/pages';
 import { lazy } from 'react';
 
-const NavsExamplePage = lazy(() => import('@/pages/examples/userInterface/Navs.example.page'));
+const AgentBuilderPage = lazy(() => import('@/pages/agent/AgentBuilder/AgentBuilder.page'));
 
 const AgentPages = [
 	{
-		path: pages.examples.exampleMain.to,
+		path: pages.agent.to,
 		children: [
 			{
-				path: pages.examples.exampleMain.subPages.userInterface.subPages.navs.to,
-				element: <NavsExamplePage />,
+				path: pages.agent.subPages.new.to,
+				element: <AgentBuilderPage />,
+			},
+			{
+				path: pages.agent.subPages.edit.to,
+				element: <AgentBuilderPage />,
 			},
 		],
 	},

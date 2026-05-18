@@ -10,7 +10,7 @@ const NodeLibrarySearch = ({
 		value={value}
 		onChange={(event) => onChange(event.target.value)}
 		placeholder='Search nodes'
-		className='min-w-0 flex-1 bg-transparent text-sm text-zinc-900 outline-none placeholder:text-zinc-400 dark:text-zinc-100 dark:placeholder:text-zinc-600'
+		className='min-w-0 flex-1 appearance-none border-0 bg-transparent text-sm text-zinc-900 outline-none ring-0 placeholder:text-zinc-400 focus:border-0 focus:outline-none focus:ring-0 focus-visible:outline-none dark:text-zinc-100 dark:placeholder:text-zinc-600'
 	/>
 );
 

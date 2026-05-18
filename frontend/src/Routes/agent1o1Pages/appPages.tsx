@@ -1,17 +1,20 @@
-import pages from '@/Routes/pages';
 import { lazy } from 'react';
 
-const NavsExamplePage = lazy(() => import('@/pages/examples/userInterface/Navs.example.page'));
+const WorkflowsPage = lazy(() => import('@/pages/app/Workflows/Workflows.page'));
+const WorkspaceSettingsPage = lazy(() => import('@/pages/app/Settings/WorkspaceSettings.page'));
 
 const AppPages = [
 	{
-		path: pages.examples.exampleMain.to,
-		children: [
-			{
-				path: pages.examples.exampleMain.subPages.userInterface.subPages.navs.to,
-				element: <NavsExamplePage />,
-			},
-		],
+		path: '/app',
+		element: <WorkflowsPage />,
+	},
+	{
+		path: '/app/workflows',
+		element: <WorkflowsPage />,
+	},
+	{
+		path: '/app/settings/profile/general',
+		element: <WorkspaceSettingsPage />,
 	},
 ];
 

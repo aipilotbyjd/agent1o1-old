@@ -14,6 +14,8 @@ import ExamplePages from '@/Routes/infoPages/examplePages';
 import RegisterPage from '@/pages/Register.page';
 import EditorLayout from '@/layouts/Editor.layout';
 import EditorPages from '@/Routes/agent1o1Pages/editorPages';
+import AgentPages from '@/Routes/agent1o1Pages/agentPages';
+import AppPages from '@/Routes/agent1o1Pages/appPages';
 
 // Lazily loaded components for routes
 const SalesLayout = lazy(() => import('@/pages/apps/sales/_layouts/Sales.layout'));
@@ -89,13 +91,11 @@ const router = createBrowserRouter([
 					{
 						element: <EditorLayout />,
 						children: [
+							...AppPages,
 							...EditorPages,
+							...AgentPages,
 							{
 								path: '/settings/profile/general',
-								element: <ProfileSettingsPage />,
-							},
-							{
-								path: '/app/settings/profile/general',
 								element: <ProfileSettingsPage />,
 							},
 						],

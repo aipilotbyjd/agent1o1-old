@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Resizable } from 're-resizable';
 import AiBuilderPanel from '../_partial/ai/AiBuilderPanel.partial';
@@ -10,11 +10,11 @@ import Inspector from '../_partial/inspector/Inspector.partial';
 import NodeLibrary from '../_partial/library/NodeLibrary.partial';
 import RunPanel from '../_partial/run/RunPanel.partial';
 import ActionBar from '../_partial/shell/ActionBar.partial';
-import AgentBuilderSurface from '../_partial/shell/AgentBuilderSurface.partial';
-import ChatWorkflowSurface from '../_partial/shell/ChatWorkflowSurface.partial';
-import SettingsSurface from '../_partial/shell/SettingsSurface.partial';
+import AgentBuilderPage from '@/pages/agent/AgentBuilder/AgentBuilder.page';
+import WorkspaceSettingsPage from '@/pages/app/Settings/WorkspaceSettings.page';
 import StatusBar from '../_partial/shell/StatusBar.partial';
 import Topbar from '../_partial/shell/Topbar.partial';
+import WorkflowsPage from '@/pages/app/Workflows/Workflows.page';
 import WorkspaceSidebar from '../_partial/shell/WorkspaceSidebar.partial';
 import { useAutosave } from '../_hooks/useAutosave.hook';
 import { useEditorHotkeys } from '../_hooks/useEditorHotkeys.hook';
@@ -26,6 +26,7 @@ import { useWorkflowShellStore } from '@/store/workflowShell.store';
 const BuildPage = () => {
 	const { state } = useWorkflowEditor();
 	const activeWorkspaceView = useWorkflowShellStore((store) => store.activeWorkspaceView);
+	const setActiveWorkspaceView = useWorkflowShellStore((store) => store.setActiveWorkspaceView);
 	const mobileSidebarOpen = useWorkflowShellStore((store) => store.mobileSidebarOpen);
 	const closeMobileSidebar = useWorkflowShellStore((store) => store.closeMobileSidebar);
 	const { workspaceId, workflowId } = useWorkflowRouteParams();
@@ -37,6 +38,12 @@ const BuildPage = () => {
 
 	useAutosave();
 	useEditorHotkeys();
+
+	useEffect(() => {
+		if (workspaceId && workflowId) {
+			setActiveWorkspaceView('editor');
+		}
+	}, [setActiveWorkspaceView, workflowId, workspaceId]);
 
 	if (apiState.isLoading && workspaceId && workflowId) {
 		return (
@@ -53,13 +60,15 @@ const BuildPage = () => {
 					API unavailable — running in local mode.
 				</div>
 			)}
-			{activeWorkspaceView !== 'settings' && (
+			{activeWorkspaceView !== 'settings' && activeWorkspaceView !== 'editor' && (
 				<div className='hidden shrink-0 lg:block'>
 					<WorkspaceSidebar />
 				</div>
 			)}
 			<AnimatePresence>
-				{mobileSidebarOpen && activeWorkspaceView !== 'settings' && (
+				{mobileSidebarOpen &&
+					activeWorkspaceView !== 'settings' &&
+					activeWorkspaceView !== 'editor' && (
 					<motion.div
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
@@ -83,11 +92,11 @@ const BuildPage = () => {
 				)}
 			</AnimatePresence>
 			{activeWorkspaceView === 'workflows' ? (
-				<ChatWorkflowSurface />
+				<WorkflowsPage />
 			) : activeWorkspaceView === 'agents' ? (
-				<AgentBuilderSurface />
+				<AgentBuilderPage />
 			) : activeWorkspaceView === 'settings' ? (
-				<SettingsSurface />
+				<WorkspaceSettingsPage />
 			) : (
 				<>
 					<AnimatePresence initial={false}>
