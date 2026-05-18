@@ -64,6 +64,7 @@ const MainAppBar = ({
 	primaryActionIcon: PrimaryActionIcon = Play,
 	onPrimaryAction,
 	children,
+	showWorkspaceActions = true,
 }: {
 	title: string;
 	status?: string;
@@ -72,6 +73,7 @@ const MainAppBar = ({
 	primaryActionIcon?: LucideIcon;
 	onPrimaryAction?: () => void;
 	children?: ReactNode;
+	showWorkspaceActions?: boolean;
 }) => {
 	const toggleMobileSidebar = useWorkflowShellStore((store) => store.toggleMobileSidebar);
 	const { isDarkTheme, setDarkModeStatus } = useDarkMode();
@@ -101,9 +103,11 @@ const MainAppBar = ({
 
 			<div className='hidden items-center gap-2 md:flex'>
 				{children}
-				<MainAppBarIconButton title='Workspace settings'>
-					<Settings2 size={16} />
-				</MainAppBarIconButton>
+				{showWorkspaceActions && (
+					<MainAppBarIconButton title='Workspace settings'>
+						<Settings2 size={16} />
+					</MainAppBarIconButton>
+				)}
 				<MainAppBarIconButton
 					title={isDarkTheme ? 'Switch to light mode' : 'Switch to dark mode'}
 					onClick={() =>
@@ -111,14 +115,18 @@ const MainAppBar = ({
 					}>
 					{isDarkTheme ? <Sun size={16} /> : <Moon size={16} />}
 				</MainAppBarIconButton>
-				<MainAppBarPillButton>
-					<CheckCircle2 size={15} />
-					Save
-				</MainAppBarPillButton>
-				<MainAppBarPillButton variant='publish'>
-					<Rocket size={15} />
-					Publish
-				</MainAppBarPillButton>
+				{showWorkspaceActions && (
+					<>
+						<MainAppBarPillButton>
+							<CheckCircle2 size={15} />
+							Save
+						</MainAppBarPillButton>
+						<MainAppBarPillButton variant='publish'>
+							<Rocket size={15} />
+							Publish
+						</MainAppBarPillButton>
+					</>
+				)}
 				<motion.button
 					whileTap={{ scale: 0.98 }}
 					type='button'

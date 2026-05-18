@@ -6,6 +6,10 @@ type TWorkflowShellState = {
 	activeWorkspaceView:
 		| 'dashboard'
 		| 'agents'
+		| 'skills'
+		| 'files'
+		| 'apps'
+		| 'history'
 		| 'workflows'
 		| 'automations'
 		| 'integrations'

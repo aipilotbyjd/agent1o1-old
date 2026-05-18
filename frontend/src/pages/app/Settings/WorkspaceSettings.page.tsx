@@ -16,16 +16,21 @@ import {
 	UserRound,
 } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { useNavigate } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import avatar from '@/assets/avatar/avatar1.png';
 import { useWorkflowShellStore } from '@/store/workflowShell.store';
 
 const profileNav = [
-	{ label: 'General', icon: UserRound, active: true, locked: false },
-	{ label: 'Subscription', icon: CreditCard, locked: false },
-	{ label: 'Usage & Limits', icon: BarChart3, locked: false },
-	{ label: 'Apps', icon: Blocks, locked: false },
-	{ label: 'Secrets', icon: KeyRound, locked: false },
+	{ label: 'General', icon: UserRound, active: true, locked: false, to: '/app/settings/profile/general' },
+	{
+		label: 'Subscription',
+		icon: CreditCard,
+		locked: false,
+		to: '/app/settings/profile/subscription',
+	},
+	{ label: 'Usage & Limits', icon: BarChart3, locked: false, to: '#' },
+	{ label: 'Apps', icon: Blocks, locked: false, to: '/app/apps' },
+	{ label: 'Secrets', icon: KeyRound, locked: false, to: '#' },
 ];
 
 const organizationNav = [
@@ -46,28 +51,48 @@ const SettingsLink = ({
 	icon: Icon,
 	active = false,
 	locked = false,
+	to,
 }: {
 	label: string;
 	icon?: typeof UserRound;
 	active?: boolean;
 	locked?: boolean;
-}) => (
-	<button
-		type='button'
-		className={[
+	to?: string;
+}) => {
+	const className = ({ isActive }: { isActive?: boolean } = {}) =>
+		[
 			'flex h-11 w-full items-center gap-3 rounded-lg px-3 text-left text-sm font-semibold transition',
-			active
+			active || isActive
 				? 'bg-zinc-100 text-zinc-950'
 				: 'text-zinc-500 hover:bg-zinc-100/70 hover:text-zinc-900',
-		].join(' ')}>
-		{locked ? (
-			<LockKeyhole size={18} className='shrink-0 text-zinc-400' />
-		) : Icon ? (
-			<Icon size={18} className='shrink-0' />
-		) : null}
-		<span className='min-w-0 truncate'>{label}</span>
+		].join(' ');
+	const content = (
+		<>
+			{locked ? (
+				<LockKeyhole size={18} className='shrink-0 text-zinc-400' />
+			) : Icon ? (
+				<Icon size={18} className='shrink-0' />
+			) : null}
+			<span className='min-w-0 truncate'>{label}</span>
+		</>
+	);
+
+	if (to && to !== '#') {
+		return (
+			<NavLink to={to} className={({ isActive }) => className({ isActive })}>
+				{content}
+			</NavLink>
+		);
+	}
+
+	return (
+	<button
+		type='button'
+		className={className()}>
+		{content}
 	</button>
-);
+	);
+};
 
 const SettingsRow = ({
 	title,

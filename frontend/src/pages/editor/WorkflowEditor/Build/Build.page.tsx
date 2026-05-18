@@ -12,6 +12,9 @@ import RunPanel from '../_partial/run/RunPanel.partial';
 import ActionBar from '../_partial/shell/ActionBar.partial';
 import AgentBuilderPage from '@/pages/agent/AgentBuilder/AgentBuilder.page';
 import WorkspaceSettingsPage from '@/pages/app/Settings/WorkspaceSettings.page';
+import ConnectedAppsPage from '@/pages/app/Apps/Apps.page';
+import FilesPage from '@/pages/app/Files/Files.page';
+import HistoryPage from '@/pages/app/History/History.page';
 import StatusBar from '../_partial/shell/StatusBar.partial';
 import Topbar from '../_partial/shell/Topbar.partial';
 import WorkflowsPage from '@/pages/app/Workflows/Workflows.page';
@@ -95,6 +98,12 @@ const BuildPage = () => {
 				<WorkflowsPage />
 			) : activeWorkspaceView === 'agents' ? (
 				<AgentBuilderPage />
+			) : activeWorkspaceView === 'files' ? (
+				<FilesPage />
+			) : activeWorkspaceView === 'apps' || activeWorkspaceView === 'integrations' ? (
+				<ConnectedAppsPage />
+			) : activeWorkspaceView === 'history' ? (
+				<HistoryPage />
 			) : activeWorkspaceView === 'settings' ? (
 				<WorkspaceSettingsPage />
 			) : (
