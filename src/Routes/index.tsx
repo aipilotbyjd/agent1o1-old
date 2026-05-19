@@ -12,6 +12,9 @@ import UnderConstructionPage from '@/pages/UnderConstruction.page';
 import DocumentationPages from '@/Routes/infoPages/documentationPages';
 import ExamplePages from '@/Routes/infoPages/examplePages';
 import RegisterPage from '@/pages/Register.page';
+import CreateWorkspacePage from '@/pages/CreateWorkspace.page';
+import InviteTeamPage from '@/pages/InviteTeam.page';
+import PricingPage from '@/pages/Pricing.page';
 import EditorLayout from '@/layouts/Editor.layout';
 import EditorPages from '@/Routes/agent1o1Pages/editorPages';
 import AgentPages from '@/Routes/agent1o1Pages/agentPages';
@@ -79,6 +82,18 @@ const router = createBrowserRouter([
 					{
 						path: '/register',
 						element: <RegisterPage />,
+					},
+					{
+						path: pages.pagesExamples.createWorkspace.to,
+						element: <CreateWorkspacePage />,
+					},
+					{
+						path: pages.pagesExamples.inviteTeam.to,
+						element: <InviteTeamPage />,
+					},
+					{
+						path: pages.pagesExamples.pricing.to,
+						element: <PricingPage />,
 					},
 					{
 						element: <DefaultLayout />,

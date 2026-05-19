@@ -217,6 +217,24 @@ const pagesExamples: TPages = {
 		text: 'Signup',
 		icon: 'AddTeam',
 	},
+	createWorkspace: {
+		id: 'createWorkspace',
+		to: '/onboarding/create-workspace',
+		text: 'Create Workspace',
+		icon: 'DashboardSquare03',
+	},
+	inviteTeam: {
+		id: 'inviteTeam',
+		to: '/onboarding/invite-team',
+		text: 'Invite Team',
+		icon: 'UserMultiple',
+	},
+	pricing: {
+		id: 'pricing',
+		to: '/pricing',
+		text: 'Pricing',
+		icon: 'CoinsDollar',
+	},
 	notFound: {
 		id: 'notFound',
 		to: '/notFound',
