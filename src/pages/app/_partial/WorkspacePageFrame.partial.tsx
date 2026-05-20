@@ -4,7 +4,7 @@ import { FolderOpen } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useEffect } from 'react';
 import MainAppBar from '@/pages/app/_partial/MainAppBar.partial';
-import WorkspaceSidebar from '@/pages/editor/WorkflowEditor/_partial/shell/WorkspaceSidebar.partial';
+import WorkspaceSidebar from '@/templates/asides/AgentAside.template';
 import { useWorkflowShellStore } from '@/store/workflowShell.store';
 
 type TWorkspaceView =

@@ -18,7 +18,7 @@ import HistoryPage from '@/pages/app/History/History.page';
 import StatusBar from '../_partial/shell/StatusBar.partial';
 import Topbar from '../_partial/shell/Topbar.partial';
 import WorkflowsPage from '@/pages/app/Workflows/Workflows.page';
-import WorkspaceSidebar from '../_partial/shell/WorkspaceSidebar.partial';
+import WorkspaceSidebar from '@/templates/asides/AgentAside.template';
 import { useAutosave } from '../_hooks/useAutosave.hook';
 import { useEditorHotkeys } from '../_hooks/useEditorHotkeys.hook';
 import { useWorkflowApiLoader } from '../_hooks/useWorkflowApiLoader.hook';
@@ -72,27 +72,27 @@ const BuildPage = () => {
 				{mobileSidebarOpen &&
 					activeWorkspaceView !== 'settings' &&
 					activeWorkspaceView !== 'editor' && (
-					<motion.div
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						className='fixed inset-0 z-[80] lg:hidden'>
-						<button
-							type='button'
-							aria-label='Close sidebar'
-							onClick={closeMobileSidebar}
-							className='absolute inset-0 bg-zinc-950/35 backdrop-blur-sm'
-						/>
 						<motion.div
-							initial={{ x: -300 }}
-							animate={{ x: 0 }}
-							exit={{ x: -300 }}
-							transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-							className='relative h-full w-[286px] max-w-[86vw]'>
-							<WorkspaceSidebar />
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							className='fixed inset-0 z-[80] lg:hidden'>
+							<button
+								type='button'
+								aria-label='Close sidebar'
+								onClick={closeMobileSidebar}
+								className='absolute inset-0 bg-zinc-950/35 backdrop-blur-sm'
+							/>
+							<motion.div
+								initial={{ x: -300 }}
+								animate={{ x: 0 }}
+								exit={{ x: -300 }}
+								transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+								className='relative h-full w-[286px] max-w-[86vw]'>
+								<WorkspaceSidebar />
+							</motion.div>
 						</motion.div>
-					</motion.div>
-				)}
+					)}
 			</AnimatePresence>
 			{activeWorkspaceView === 'workflows' ? (
 				<WorkflowsPage />

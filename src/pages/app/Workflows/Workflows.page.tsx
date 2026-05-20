@@ -13,7 +13,7 @@ import {
 import { AnimatePresence, motion } from 'framer-motion';
 import { useWorkflowShellStore } from '@/store/workflowShell.store';
 import MainAppBar, { MainAppBarPillButton } from '@/pages/app/_partial/MainAppBar.partial';
-import WorkspaceSidebar from '@/pages/editor/WorkflowEditor/_partial/shell/WorkspaceSidebar.partial';
+import WorkspaceSidebar from '@/templates/asides/AgentAside.template';
 
 const workflowNodes = [
 	{

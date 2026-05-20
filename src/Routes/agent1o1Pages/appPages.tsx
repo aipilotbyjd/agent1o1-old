@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import type { ReactNode } from 'react';
-import WorkspaceSidebar from '@/pages/editor/WorkflowEditor/_partial/shell/WorkspaceSidebar.partial';
+import WorkspaceSidebar from '@/templates/asides/AgentAside.template';
 
 const WorkflowsPage = lazy(() => import('@/pages/app/Workflows/Workflows.page'));
 const WorkspaceSettingsPage = lazy(() => import('@/pages/app/Settings/WorkspaceSettings.page'));
