@@ -1,0 +1,1 @@
+import{j as r}from"./vendor-D_nTE7E-.js";import{C as e}from"./chunk-icon-Pdyc-Xig.js";import"./chunk-mdviewer-RzNt5nmr.js";import"./chunk-highlighter-bh0nNJlE.js";const m=()=>r.jsx(r.Fragment,{children:r.jsx(e,{children:"MailNewPage"})});export{m as default};

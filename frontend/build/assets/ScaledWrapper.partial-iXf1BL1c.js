@@ -1,0 +1,1 @@
+import{j as t}from"./vendor-D_nTE7E-.js";const l=({scale:e=.5,children:r})=>{const s=1/e;return t.jsx("div",{className:"pointer-events-none relative h-full w-full overflow-hidden",children:t.jsx("div",{className:"absolute start-0 top-0 origin-top-left overflow-hidden",style:{transform:`scale(${e})`,width:`${s*100}%`},children:r})})};export{l as S};

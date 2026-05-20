@@ -1,0 +1,22 @@
+import{j as e}from"./vendor-D_nTE7E-.js";import{H as c,r as o,z as x,p as n,a as m,C as h,G as a,J as t,K as l,N as d,O as r,aB as i,aC as p}from"./chunk-icon-Pdyc-Xig.js";import{S as s}from"./index-CtDFLBYu.js";import{M as u}from"./chunk-mdviewer-RzNt5nmr.js";import"./chunk-highlighter-bh0nNJlE.js";const b="data:text/markdown;base64,YGBgdHN4CjxkaXYgY2xhc3NOYW1lPSdmbGV4IGZsZXgtd3JhcCBnYXAtMic+Cgk8U2tlbGV0b24gY2xhc3NOYW1lPSdtYi0yIHctMS8zJyAvPgoJPFNrZWxldG9uIGNsYXNzTmFtZT0ndy0yLzMnIC8+Cgk8U2tlbGV0b24gY2xhc3NOYW1lPSd3LTIvMycgLz4KCTxTa2VsZXRvbiBjbGFzc05hbWU9J3ctMi8zJyAvPgo8L2Rpdj4KYGBgCg==",j="data:text/markdown;base64,YGBgdHN4CjxkaXYgY2xhc3NOYW1lPSdmbGV4IGdhcC00Jz4KCTxkaXYgY2xhc3NOYW1lPSdzaHJpbmstMCc+CgkJPFNrZWxldG9uIGNsYXNzTmFtZT0naC0xNiB3LTE2JyByb3VuZGVkPSdyb3VuZGVkLWZ1bGwnIC8+Cgk8L2Rpdj4KCTxkaXYgY2xhc3NOYW1lPSdncm93Jz4KCQk8ZGl2IGNsYXNzTmFtZT0nZmxleCBmbGV4LXdyYXAgZ2FwLTInPgoJCQk8U2tlbGV0b24gY2xhc3NOYW1lPSdtYi0yIHctMS8zJyByb3VuZGVkPSdyb3VuZGVkLWZ1bGwnIC8+CgkJCTxTa2VsZXRvbiBjbGFzc05hbWU9J3ctMi8zJyByb3VuZGVkPSdyb3VuZGVkLWZ1bGwnIC8+CgkJCTxTa2VsZXRvbiBjbGFzc05hbWU9J3ctMi8zJyByb3VuZGVkPSdyb3VuZGVkLWZ1bGwnIC8+CgkJCTxTa2VsZXRvbiBjbGFzc05hbWU9J3ctMi8zJyByb3VuZGVkPSdyb3VuZGVkLWZ1bGwnIC8+CgkJPC9kaXY+Cgk8L2Rpdj4KPC9kaXY+CmBgYAo=",g=`import { FC, HTMLAttributes } from 'react';
+import classNames from 'classnames';
+import { TRounded } from '@/types/rounded.type';
+import themeConfig from '@/config/theme.config';
+
+// @start-snippet:: interface
+interface ISkeletonProps extends HTMLAttributes<HTMLDivElement> {
+	className?: string;
+	rounded?: TRounded;
+}
+// @end-snippet:: interface
+const Skeleton: FC<ISkeletonProps> = (props) => {
+	const { className, rounded = themeConfig.rounded, ...rest } = props;
+
+	const classes = classNames(className, rounded, 'size-6 bg-zinc-500/10 animate-pulse');
+
+	return <div className={classes} {...rest}></div>;
+};
+Skeleton.displayName = 'Skeleton';
+
+export default Skeleton;
+`,V=()=>e.jsxs(e.Fragment,{children:[e.jsx(c,{children:e.jsxs(o,{className:"flex-col items-start!",children:[e.jsx(x,{list:[{...n.documentation.baseComponent},{...n.documentation.baseComponent.subPages.skeleton}]}),e.jsxs("div",{className:"flex items-center gap-4 py-8",children:[e.jsx(m,{icon:n.documentation.baseComponent.subPages.skeleton.icon,size:"text-4xl"}),e.jsx("span",{className:"text-4xl font-bold",children:n.documentation.baseComponent.subPages.skeleton.text})]})]})}),e.jsx(h,{children:e.jsxs("div",{className:"flex flex-col gap-8",children:[e.jsxs("div",{className:"text-2xl text-zinc-500",children:["The skeleton can be used to enhance the experience of your app. It can customize its dimensions using tailwind's"," ",e.jsx("a",{href:"https://v3.tailwindcss.com/docs/height",target:"_blank",className:"underline",rel:"noreferrer",children:"height"})," ","and"," ",e.jsx("a",{href:"https://v3.tailwindcss.com/docs/width",target:"_blank",className:"underline",rel:"noreferrer",children:"width"})," ","classes."]}),e.jsx("div",{className:"text-3xl font-bold",children:"Usage"}),e.jsxs(a,{children:[e.jsx(t,{children:e.jsx(l,{children:e.jsx(d,{iconProps:{icon:"BookOpen02",color:"emerald",size:"text-3xl"},children:"Basic usage"})})}),e.jsxs(r,{children:[e.jsx("div",{className:"text-zinc-500",children:"Simplest Skeleton usage."}),e.jsx(i,{mdFile:b,inIFrame:!1,children:e.jsxs("div",{className:"flex flex-wrap gap-2",children:[e.jsx(s,{className:"mb-2 w-1/3"}),e.jsx(s,{className:"w-2/3"}),e.jsx(s,{className:"w-2/3"}),e.jsx(s,{className:"w-2/3"})]})})]})]}),e.jsxs(a,{children:[e.jsx(t,{children:e.jsx(l,{children:e.jsx(d,{iconProps:{icon:"Library",color:"violet",size:"text-3xl"},children:"Complex usage"})})}),e.jsxs(r,{children:[e.jsx("div",{className:"text-zinc-500",children:"Complex combination with avatar and multiple paragraphs."}),e.jsx(i,{mdFile:j,inIFrame:!1,children:e.jsxs("div",{className:"flex gap-4",children:[e.jsx("div",{className:"shrink-0",children:e.jsx(s,{className:"h-16 w-16",rounded:"rounded-full"})}),e.jsx("div",{className:"grow",children:e.jsxs("div",{className:"flex flex-wrap gap-2",children:[e.jsx(s,{className:"mb-2 w-1/3",rounded:"rounded-full"}),e.jsx(s,{className:"w-2/3",rounded:"rounded-full"}),e.jsx(s,{className:"w-2/3",rounded:"rounded-full"}),e.jsx(s,{className:"w-2/3",rounded:"rounded-full"})]})})]})})]})]}),e.jsxs(a,{children:[e.jsx(t,{children:e.jsx(l,{children:e.jsx(d,{children:"API"})})}),e.jsx(r,{children:e.jsx(u,{code:p(g,"interface")})})]})]})})]});export{V as default};

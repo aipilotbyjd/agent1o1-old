@@ -1,0 +1,1 @@
+import{j as t}from"./vendor-D_nTE7E-.js";import o from"./WorkspaceSettings.page-xp2CPXRT.js";import"./chunk-icon-Pdyc-Xig.js";import"./chunk-mdviewer-RzNt5nmr.js";import"./chunk-highlighter-bh0nNJlE.js";import"./index-CtDFLBYu.js";const a=()=>t.jsx(o,{});export{a as default};
