@@ -229,6 +229,12 @@ const pagesExamples: TPages = {
 		text: 'Invite Team',
 		icon: 'UserMultiple',
 	},
+	onboarding: {
+		id: 'onboarding',
+		to: '/onboarding',
+		text: 'Onboarding',
+		icon: 'UserAccount',
+	},
 	pricing: {
 		id: 'pricing',
 		to: '/pricing',

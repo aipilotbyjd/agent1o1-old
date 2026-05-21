@@ -56,6 +56,8 @@ const MailDashboardPage = lazy(() => import('@/pages/apps/mail/MailDashboard.pag
 const MailInboxPage = lazy(() => import('@/pages/apps/mail/MailInbox.page'));
 const MailNewPage = lazy(() => import('@/pages/apps/mail/MailNew.page'));
 const ProfileSettingsPage = lazy(() => import('@/pages/settings/ProfileSettings.page'));
+const OnboardingPage = lazy(() => import('@/pages/Onboarding.page'));
+const GumloopWorkspacePage = lazy(() => import('@/pages/GumloopWorkspace.page'));
 
 const router = createBrowserRouter([
 	{
@@ -94,6 +96,14 @@ const router = createBrowserRouter([
 					{
 						path: pages.pagesExamples.pricing.to,
 						element: <PricingPage />,
+					},
+					{
+						path: pages.pagesExamples.onboarding.to,
+						element: <OnboardingPage />,
+					},
+					{
+						path: '/gumloop',
+						element: <GumloopWorkspacePage />,
 					},
 					{
 						element: <DefaultLayout />,
