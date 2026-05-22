@@ -58,6 +58,7 @@ const MailNewPage = lazy(() => import('@/pages/apps/mail/MailNew.page'));
 const ProfileSettingsPage = lazy(() => import('@/pages/settings/ProfileSettings.page'));
 const OnboardingPage = lazy(() => import('@/pages/Onboarding.page'));
 const GumloopWorkspacePage = lazy(() => import('@/pages/GumloopWorkspace.page'));
+const WorkspaceListPage = lazy(() => import('@/pages/WorkspaceList.page'));
 
 const router = createBrowserRouter([
 	{
@@ -104,6 +105,10 @@ const router = createBrowserRouter([
 					{
 						path: '/workspaces',
 						element: <GumloopWorkspacePage />,
+					},
+					{
+						path: '/workspace-list',
+						element: <WorkspaceListPage />,
 					},
 					{
 						element: <DefaultLayout />,
