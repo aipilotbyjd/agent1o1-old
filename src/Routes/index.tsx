@@ -102,7 +102,7 @@ const router = createBrowserRouter([
 						element: <OnboardingPage />,
 					},
 					{
-						path: '/gumloop',
+						path: '/workspaces',
 						element: <GumloopWorkspacePage />,
 					},
 					{
