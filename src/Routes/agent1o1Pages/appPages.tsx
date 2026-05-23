@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import type { ReactNode } from 'react';
 import WorkspaceSidebar from '@/templates/asides/AgentAside.template';
-
+import SecretsSettingsPage from '@/pages/app/Settings/SecretsSettings.page';
 const WorkflowsPage = lazy(() => import('@/pages/app/Workflows/Workflows.page'));
 const WorkspaceSettingsPage = lazy(() => import('@/pages/app/Settings/WorkspaceSettings.page'));
 const SubscriptionSettingsPage = lazy(
@@ -72,6 +72,14 @@ const AppPages = [
 	{
 		path: '/settings/profile/subscription',
 		element: <SubscriptionSettingsPage />,
+	},
+	{
+		path: '/app/settings/profile/secrets',
+		element: <SecretsSettingsPage />,
+	},
+	{
+		path: '/settings/profile/secrets',
+		element: <SecretsSettingsPage />,
 	},
 ];
 
