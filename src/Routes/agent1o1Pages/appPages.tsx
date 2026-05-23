@@ -2,11 +2,16 @@ import { lazy } from 'react';
 import type { ReactNode } from 'react';
 import WorkspaceSidebar from '@/templates/asides/AgentAside.template';
 import SecretsSettingsPage from '@/pages/app/Settings/SecretsSettings.page';
+import UserSettingsPage from '@/pages/app/Settings/UserSettings.page';
+import UsageAndLimit from '@/pages/app/Settings/UsageAndLimitPage';
+
+
 const WorkflowsPage = lazy(() => import('@/pages/app/Workflows/Workflows.page'));
 const WorkspaceSettingsPage = lazy(() => import('@/pages/app/Settings/WorkspaceSettings.page'));
 const SubscriptionSettingsPage = lazy(
 	() => import('@/pages/app/Settings/SubscriptionSettings.page'),
 );
+const UsageAndLimitPage = lazy(() => import('@/pages/app/Settings/UsageAndLimitPage'));
 const FilesPage = lazy(() => import('@/pages/app/Files/Files.page'));
 const ConnectedAppsPage = lazy(() => import('@/pages/app/Apps/Apps.page'));
 const HistoryPage = lazy(() => import('@/pages/app/History/History.page'));
@@ -74,12 +79,36 @@ const AppPages = [
 		element: <SubscriptionSettingsPage />,
 	},
 	{
+		path: '/app/settings/profile/usage',
+		element: (
+			<WorkspaceRouteShell>
+				<UsageAndLimitPage />
+			</WorkspaceRouteShell>
+		),
+	},
+	{
+		path: '/settings/profile/usage',
+		element: (
+			<WorkspaceRouteShell>
+				<UsageAndLimitPage />
+			</WorkspaceRouteShell>
+		),
+	},
+	{
 		path: '/app/settings/profile/secrets',
 		element: <SecretsSettingsPage />,
 	},
 	{
 		path: '/settings/profile/secrets',
 		element: <SecretsSettingsPage />,
+	},
+	{
+		path: '/settings/profile/UserSettingsPage',
+		element: <UserSettingsPage />,
+	},
+	{
+		path: '/settings/profile/UsageAndLimit',
+		element: <UsageAndLimit />,
 	},
 ];
 
