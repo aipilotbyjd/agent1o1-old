@@ -30,7 +30,12 @@ const profileNav = [
 	},
 	{ label: 'Usage & Limits', icon: BarChart3, locked: false, to: '#' },
 	{ label: 'Apps', icon: Blocks, locked: false, to: '/app/apps' },
-	{ label: 'Secrets', icon: KeyRound, locked: false, to: '#' },
+	{
+		label: 'Secrets',
+		icon: KeyRound,
+		locked: false,
+		to: '/app/settings/profile/secrets',
+	},
 ];
 
 const organizationNav = [
